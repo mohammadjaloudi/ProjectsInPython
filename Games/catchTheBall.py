@@ -97,5 +97,4 @@ sc.onkeypress(go_to_left, "Left")
 sc.onkeypress(go_to_right, "Right")
 
 moving_game()
-
 sc.mainloop()
