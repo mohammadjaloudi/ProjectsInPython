@@ -86,7 +86,6 @@ while True:
     sc.update()
     if head.xcor() >= 300 or head.xcor() <= -300 or head.ycor() >= 300 or head.ycor() <= -300:
         lost()
-        scoring.write(f"Score: {score}, Max Score: {mx}", align="center", font=("Arial", 16))
     if head.distance(food) < 20:
         food.goto(randint(-290, 290), randint(-290, 290))        
         new = turtle.Turtle()
