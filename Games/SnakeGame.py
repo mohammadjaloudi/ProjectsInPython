@@ -69,7 +69,7 @@ def move():
         head.setx(head.xcor() + 20)
 
 def lost():
-    global score
+    global score, dir, DELAY
     sleep(1)
     dir = "stop"
     for seg in segs:
