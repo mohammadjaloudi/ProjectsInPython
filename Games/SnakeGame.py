@@ -68,18 +68,24 @@ def move():
     if dir == "right":
         head.setx(head.xcor() + 20)
 
+def lost():
+    global score
+    sleep(1)
+    dir = "stop"
+    for seg in segs:
+        seg.goto(1000, 1000)
+    segs.clear()
+    score = 0
+    head.goto(0, 0)
+    food.goto(randint(-300, 300), randint(-300, 300))
+    scoring.clear()
+    scoring.write(f"Score: {score}, Max Score: {mx}", align="center", font=("Arial", 16))
+    DELAY = 0.01
+
 while True:
     sc.update()
     if head.xcor() >= 300 or head.xcor() <= -300 or head.ycor() >= 300 or head.ycor() <= -300:
-        sleep(1)
-        dir = "stop"
-        for seg in segs:
-            seg.goto(1000, 1000)
-        segs.clear()
-        score = 0
-        head.goto(0, 0)
-        food.goto(randint(-300, 300), randint(-300, 300))
-        scoring.clear()
+        lost()
         scoring.write(f"Score: {score}, Max Score: {mx}", align="center", font=("Arial", 16))
     if head.distance(food) < 20:
         food.goto(randint(-300, 300), randint(-300, 300))        
@@ -100,17 +106,7 @@ while True:
     move()
     for seg in segs:
         if head.distance(seg) < 20:
-            sleep(1)
-            dir = "stop"
-            for seg in segs:
-                seg.goto(1000, 1000)
-            segs.clear()
-            score = 0
-            head.goto(0, 0)
-            food.goto(randint(-300, 300), randint(-300, 300))
-            scoring.clear()
-            scoring.write(f"Score: {score}, Max Score: {mx}", align="center", font=("Arial", 16))
-            DELAY = 0.01
+            lost()
     sleep(DELAY)
     
 sc.mainloop()
