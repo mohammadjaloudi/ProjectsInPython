@@ -44,28 +44,19 @@ scoring.color("white")
 scoring.goto(0, 320)
 scoring.write(f"Score: {score}, Max Score: {mx}", align="center", font=("Arial", 16))
 
-def up():
+def direction(direct):
     global dir
-    if dir != "down":
-        dir = "up"
-def down():
-    global dir
-    if dir != "up":
-        dir = "down"
-def left():
-    global dir
-    if dir != "right":
-        dir = "left"
-def right():
-    global dir
-    if dir != "left":
-        dir = "right"
+    if (direct == "up" and dir != "down") \
+    or (direct == "down" and dir != "up") \
+    or (direct == "left" and dir != "right") \
+    or (direct == "right" and dir != "left"):
+        dir = direct
 
 sc.listen()
-sc.onkeypress(up, 'w')
-sc.onkeypress(down, 's')
-sc.onkeypress(left, 'a')
-sc.onkeypress(right, 'd')
+sc.onkeypress(lambda: direction("up"), 'w')
+sc.onkeypress(lambda: direction("down"), 's')
+sc.onkeypress(lambda: direction("left"), 'a')
+sc.onkeypress(lambda: direction("right"), 'd')
 
 def move():
     if dir == "up":
