@@ -80,7 +80,7 @@ def lost():
     food.goto(randint(-300, 300), randint(-300, 300))
     scoring.clear()
     scoring.write(f"Score: {score}, Max Score: {mx}", align="center", font=("Arial", 16))
-    DELAY = 0.01
+    DELAY = 0.1
 
 while True:
     sc.update()
