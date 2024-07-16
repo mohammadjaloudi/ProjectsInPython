@@ -78,9 +78,6 @@ while True:
     except ValueError:
         print("Invalid input")
 
-if bonus["Nicola"] > 0:
-    print(f"Nicola has {bonus['Nicola']} clients.")
-if bonus["Ahmad"] > 0:
-    print(f"Ahmad has {bonus['Ahmad']} clients.")
-if bonus["Ali"] > 0:
-    print(f"Ali has {bonus['Ali']} clients.")
+for name, client in bonus.items():
+    if client > 0:
+        print(f"{name} has {client} clients.")
