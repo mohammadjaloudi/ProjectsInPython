@@ -63,9 +63,6 @@ while True:
                 time = input("Enter the time of the book (HH:MM): ")
                 name = input("Enter the name of the doctor (Nicola, Ahmad, Ali): ")
                 name = name.title()
-                if name <= 0 or name > 3:
-                    print("Invalid input")
-                    continue
                 mins = 30
                 add_appointment(date, time, name, mins)
             case 2:
