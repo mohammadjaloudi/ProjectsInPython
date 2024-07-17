@@ -61,13 +61,13 @@ while True:
             case 1:
                 date = input("Enter the date of the book (YYYY-MM-DD): ")
                 time = input("Enter the time of the book (HH:MM): ")
-                name = int(input("Enter the name of the doctor (1 for Nicola, 2 for Ahmad, 3 for Ali): "))
+                name = input("Enter the name of the doctor (Nicola, Ahmad, Ali): ")
+                name = name.title()
                 if name <= 0 or name > 3:
                     print("Invalid input")
                     continue
-                doctor_name = {1: "Nicola", 2: "Ahmad", 3: "Ali"}[name]
                 mins = 30
-                add_appointment(date, time, doctor_name, mins)
+                add_appointment(date, time, name, mins)
             case 2:
                 view_appointments()
             case 3:
