@@ -67,6 +67,9 @@ while True:
             case 4:
                 id = input("Enter Student's ID: ")
                 display_student_info(id)
+            case 5:
+                print("Thanks for using our humble system.")
+                break
             case _:
                 print("Invlid choice")
     except ValueError:
