@@ -54,12 +54,21 @@ while True:
             case 1:
                 id = input("Enter Student's ID: ")
                 name = input("Enter Student's name: ")
+                if not (name.isalpha()):
+                    print("No name contains digits!")
+                    continue
                 age = input("Enter Student's age: ")
+                if not (6 <= age <= 18):
+                    print("Age is not a school's age!")
+                    continue
                 add_student(id, name, age)
             case 2:
                 id = input("Enter Student's ID: ")
                 subject = input("Enter subject's name: ")
                 grade = input("Enter subject's grade: ")
+                if not (0 <= grade <= 100):
+                    print("Grade doesn't make any sense.")
+                    continue
                 update_grades(id, subject, grade)
             case 3:
                 id = input("Enter Student's ID: ")
