@@ -59,6 +59,9 @@ while True:
                 population = input("Enter the population of the city: ")
                 try:
                     population = int(population)
+                    if population < 0:
+                        print(f"Seriously? {population} popele are in the city?")
+                        continue
                     add_city(city_name, population)
                 except ValueError:
                     print("Please enter a valid number of people!")
@@ -68,6 +71,9 @@ while True:
                 population = input("Enter the updated population of the city: ")
                 try:
                     population = int(population)
+                    if population < 0:
+                        print(f"Seriously? {population} popele are in the city?")
+                        continue
                     update_population(city_name, population)
                 except ValueError:
                     print("Please enter a valid number of people!")
