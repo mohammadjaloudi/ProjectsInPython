@@ -58,6 +58,9 @@ while True:
                 city_name = input("Enter the name of the city: ")
                 city_name = city_name.title()
                 population = input("Enter the population of the city: ")
+                if city_name == '':
+                    print("Take it serious! Please enter a real city name!")
+                    continue
                 try:
                     population = int(population)
                     if population < 0:
@@ -70,6 +73,9 @@ while True:
                 city_name = input("Enter the city you want to update its population: ")
                 city_name = city_name.title()
                 population = input("Enter the updated population of the city: ")
+                if city_name == '':
+                    print("Take it serious! Please enter a real city name!")
+                    continue
                 try:
                     population = int(population)
                     if population < 0:
