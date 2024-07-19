@@ -55,6 +55,7 @@ while True:
         match option:
             case 1:
                 city_name = input("Enter the name of the city: ")
+                city_name = city_name.title()
                 population = input("Enter the population of the city: ")
                 try:
                     population = int(population)
@@ -63,6 +64,7 @@ while True:
                     print("Please enter a valid number of people!")
             case 2:
                 city_name = input("Enter the city you want to update its population: ")
+                city_name = city_name.title()
                 population = input("Enter the updated population of the city: ")
                 try:
                     population = int(population)
