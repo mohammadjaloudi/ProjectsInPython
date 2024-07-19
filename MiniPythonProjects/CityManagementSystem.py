@@ -6,6 +6,7 @@ cities = {}
 def add_city(city_name, population):
     if city_name not in cities:
         cities[city_name] = population
+        print(f"{city_name} added successfully")
     else:
         print("City already exists.")
 
