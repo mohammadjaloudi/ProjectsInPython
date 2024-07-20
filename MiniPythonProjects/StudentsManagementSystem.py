@@ -74,14 +74,14 @@ def main():
                 case 1:
                     student_id = input("Enter student ID: ")
                     name = input("Enter student name: ")
-                    if not (name.isalpha()) or name == '' or id == '':
+                    if not (name.isalpha()) or name == '' or student_id == '':
                         print("Invalid input")
                     else:
                         name = name.title()
                         add_student(student_id, name)                       
                 case 2:
                     student_id = input("Enter student ID: ")
-                    if id == '':
+                    if student_id == '':
                         print("Invalid input")
                     remove_student(student_id)
                 case 3:
@@ -91,14 +91,14 @@ def main():
                     try:
                         grade = int(grade)
                         subject = subject.title()
-                        if id == '' or subject == '':
+                        if student_id == '' or subject == '':
                             print("Invalid input")
                         add_or_update_grade(student_id, subject, grade)
                     except ValueError:
                         print("Invalid grade input!")
                 case 4:
                     student_id = input("Enter student ID: ")
-                    if id == '':
+                    if student_id == '':
                         print("Invalid input")
                     get_student_info(student_id)
                 case 5:
