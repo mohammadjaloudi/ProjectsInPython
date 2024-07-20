@@ -94,6 +94,8 @@ def main():
                         subject = subject.title()
                         if student_id == '' or subject == '':
                             print("Invalid input")
+                        elif not (0 <= grade <= 100):
+                            print("Onvalid grade!")
                         else:
                             add_or_update_grade(student_id, subject, grade)
                     except ValueError:
