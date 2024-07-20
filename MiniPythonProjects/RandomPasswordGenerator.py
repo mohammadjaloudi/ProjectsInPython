@@ -52,6 +52,9 @@ while True:
     except ValueError:
         print("Invalid input!")
 
-print("Generated passwords: ")
-for number_of_password, password in enumerate(passwords, start=1):
-    print(f"Password {number_of_password} is: {password}")
+if not passwords:
+    print("No passwords exist :(")
+else:
+    print("Generated passwords: ")
+    for number_of_password, password in enumerate(passwords, start=1):
+        print(f"Password {number_of_password} is: {password}")
