@@ -34,10 +34,10 @@ while True:
         option = int(option)
         match option:
             case 1:
-                password_size = input("Enter your password size (8 - 15): ")
+                password_size = input("Enter your password size (8 - 20): ")
                 try:
                     password_size = int(password_size)
-                    if not(8 <= password_size <= 15):
+                    if not(8 <= password_size <= 20):
                         print("Invalid size! Please follow the instructions!")
                     else:
                         passwords.append(creating_a_password(password_size))
