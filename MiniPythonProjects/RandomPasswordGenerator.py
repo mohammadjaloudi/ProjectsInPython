@@ -2,13 +2,13 @@ import string
 from random import choice, randint, shuffle
 
 def creating_a_password(size_of_the_password) -> str:
-    small = randint(1, size_of_the_password - 3)
-    letter = randint(1, size_of_the_password - small - 2)
-    digit = randint(1, size_of_the_password - small - letter - 1)
-    punctuation = size_of_the_password - small - letter - digit
+    s_letters = randint(1, size_of_the_password - 3)
+    l_letter = randint(1, size_of_the_password - s_letters - 2)
+    digit = randint(1, size_of_the_password - s_letters - l_letter - 1)
+    punctuation = size_of_the_password - s_letters - l_letter - digit
     
-    small_letters = ''.join(choice(string.ascii_lowercase) for _ in range(small))
-    capital_letters = ''.join(choice(string.ascii_uppercase) for _ in range(letter))
+    small_letters = ''.join(choice(string.ascii_lowercase) for _ in range(s_letters))
+    capital_letters = ''.join(choice(string.ascii_uppercase) for _ in range(l_letter))
     digits = ''.join(choice(string.digits) for _ in range(digit))
     punctuations = ''.join(choice(string.punctuation) for _ in range(punctuation))
     
