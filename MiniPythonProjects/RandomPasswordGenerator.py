@@ -1,16 +1,16 @@
 import string
 from random import choice, randint, shuffle
 
-def creating_a_password(size_of_the_password) -> str:
-    s_letters = randint(1, size_of_the_password - 3)
-    l_letter = randint(1, size_of_the_password - s_letters - 2)
-    digit = randint(1, size_of_the_password - s_letters - l_letter - 1)
-    punctuation = size_of_the_password - s_letters - l_letter - digit
+def create_password(password_size) -> str:
+    s_letters = randint(1, password_size - 3)
+    l_letters = randint(1, password_size - s_letters - 2)
+    digits_count = randint(1, password_size - s_letters - l_letters - 1)
+    punctuations_count = password_size - s_letters - l_letters - digits_count
     
     small_letters = ''.join(choice(string.ascii_lowercase) for _ in range(s_letters))
-    capital_letters = ''.join(choice(string.ascii_uppercase) for _ in range(l_letter))
-    digits = ''.join(choice(string.digits) for _ in range(digit))
-    punctuations = ''.join(choice(string.punctuation) for _ in range(punctuation))
+    capital_letters = ''.join(choice(string.ascii_uppercase) for _ in range(l_letters))
+    digits = ''.join(choice(string.digits) for _ in range(digits_count))
+    punctuations = ''.join(choice(string.punctuation) for _ in range(punctuations_count))
     
     password_characters = small_letters + capital_letters + digits + punctuations
     
@@ -40,21 +40,21 @@ while True:
                     if not(8 <= password_size <= 20):
                         print("Invalid size! Please follow the instructions!")
                     else:
-                        passwords.append(creating_a_password(password_size))
+                        passwords.append(create_password(password_size))
                         print(f"The created password is: {passwords[-1]}")
                 except ValueError:
-                    print("Invalid input!")
+                    print("Invalid input! Please enter a valid number for the password size.")
             case 2:
                 print("Thanks for using our password generator.")
                 break
             case _:
-                print("Invalid choice! Please follow the instructions")
+                print("Invalid choice! Please follow the instructions.")
     except ValueError:
-        print("Invalid input!")
+        print("Invalid input! Please enter a valid number.")
 
 if not passwords:
     print("No passwords exist :(")
 else:
     print("Generated passwords: ")
-    for number_of_password, password in enumerate(passwords, start=1):
-        print(f"Password {number_of_password} is: {password}")
+    for idx, password in enumerate(passwords, start=1):
+        print(f"Password {idx} is: {password}")
