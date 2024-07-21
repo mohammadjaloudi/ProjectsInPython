@@ -19,8 +19,6 @@ class Purchase:
         self.selected_items = {}
     
     def purchase(self, name, quantity):
-        if name not in self.inventory.keys():
-            raise InsufficientInventoryError("Invalid item name. Please choose from the available items.")
         if quantity < 0:
             raise InsufficientInventoryError("Quantity must be a positive integer.")
         if quantity > self.inventory[name]:
