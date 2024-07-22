@@ -1,4 +1,4 @@
-from statistics import mean
+from statistics import mean # sum(a) / len(a)
 
 students = {}
 
@@ -57,19 +57,27 @@ while True:
                 if not (name.isalpha()):
                     print("No name contains digits!")
                     continue
-                age = input("Enter Student's age: ")
-                if not (6 <= age <= 18):
-                    print("Age is not a school's age!")
-                    continue
-                add_student(id, name, age)
+                age = int(input("Enter Student's age: "))
+                try:
+                    age = int(age)
+                    if not (6 <= age <= 18):
+                        print("Age is not a school's age!")
+                        continue
+                    add_student(id, name, age)
+                except ValueError:
+                    print("Invalid age")
             case 2:
                 id = input("Enter Student's ID: ")
                 subject = input("Enter subject's name: ")
                 grade = input("Enter subject's grade: ")
-                if not (0 <= grade <= 100):
-                    print("Grade doesn't make any sense.")
-                    continue
-                update_grades(id, subject, grade)
+                try:
+                    grade = int(grade)
+                    if not (0 <= grade <= 100):
+                        print("Grade doesn't make any sense.")
+                        continue
+                    update_grades(id, subject, grade)
+                except ValueError:
+                    print("Invalid grade")
             case 3:
                 id = input("Enter Student's ID: ")
                 calculate_average_grade(id)
