@@ -59,9 +59,11 @@ while True:
             print(f"You drew a card. Your new hand: {players[current_player]}")
             valid_move = True
             break
+        
         if turn not in players[current_player]:
             print("You don't have this card! Try again.")
             continue
+        
         if turn == "CC":
             chosen_color = input("Choose a color (R, B, Y, G): ").upper()
             if chosen_color in colors:
@@ -76,6 +78,7 @@ while True:
                         game_pile.append(chosen_color)
                         players[current_player].remove(turn)
                         valid_move = True
+                        
         elif turn == "+4":
             draw_cards(4, (current_player + direction) % n)
             print(f"Player {(current_player + direction) % n + 1} drew 4 cards.")
@@ -92,21 +95,25 @@ while True:
                         game_pile.append(chosen_color)
                         players[current_player].remove(turn)
                         valid_move = True
+                        
         elif turn.startswith("+2") and turn[-1] == game_pile[-1][-1]:
             draw_cards(2, (current_player + direction) % n)
             print(f"Player {(current_player + direction) % n + 1} drew 2 cards.")
             game_pile.append(turn)
             players[current_player].remove(turn)
             valid_move = True
+            
         elif turn.startswith("S") and turn[-1] == game_pile[-1][-1]:
             game_pile.append(turn)
             players[current_player].remove(turn)
             current_player = (current_player + direction) % n
             valid_move = True
+            
         elif turn[-1] == game_pile[-1][-1] or turn[:-1] == game_pile[-1][:-1]:
             game_pile.append(turn)
             players[current_player].remove(turn)
             valid_move = True
+            
         else:
             print("Invalid card! Try again.")
     
